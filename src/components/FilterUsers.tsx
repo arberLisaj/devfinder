@@ -1,23 +1,29 @@
+import { useRef } from "react";
 import { BsSearch } from "react-icons/bs";
 
 interface Props {
-  inputValue: string;
   setInputValue: (something: string) => void;
 }
 
-const FilterUsers = ({ inputValue, setInputValue }: Props) => {
+const FilterUsers = ({ setInputValue }: Props) => {
+  const input = useRef<HTMLInputElement>(null);
+
+  const handleInput = () => {
+    if (input.current !== null) {
+      setInputValue(input.current.value);
+    }
+  };
   return (
     <section role="searchbox" id="filter">
       <span>
         <BsSearch />
       </span>
       <input
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
+        ref={input}
         type="text"
         placeholder="Search Github username"
       />
-      <button>Search</button>
+      <button onClick={handleInput}>Search</button>
     </section>
   );
 };

@@ -83,9 +83,71 @@ section#filter {
 }
 
 // User section
-section#user{
+section#user {
   width: 100%;
   max-width: 1000px;
   margin: auto;
+  border-radius: 20px;
+  section.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    a{
+      text-decoration: none;
+    }
+    img {
+      width: 50%;
+      max-width: 250px;
+      border-radius: 5%;
+    }
+    .username {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      h1 {
+        font-size: 24px;
+      }
+      a {
+        padding-top: 5px;
+        display: block;
+        font-weight: bold;
+        text-decoration: none;
+      }
+    }
+    .bio {
+      font-size: 18px;
+    }
+    ul.details {
+      margin-block: 10px;
+      li {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        span , a{
+          padding-bottom: 2 px;
+        }
+      }
+    }
+    ul.followers {
+      list-style: none;
+      display: flex;
+      margin-top: 20px;
+      li {
+        text-align: center;
+        border-inline: 1px solid rgb(212, 212, 212);
+        padding-inline:10px;
+        h5 {
+          font-weight: normal;
+        }
+      }
+    }
+  }
 }
 
+.error {
+  text-align: center;
+  color: red;
+  margin-top: 40px;
+}

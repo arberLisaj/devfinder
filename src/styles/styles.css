@@ -79,4 +79,65 @@ section#user {
   width: 100%;
   max-width: 1000px;
   margin: auto;
+  border-radius: 20px;
+}
+section#user section.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+section#user section.profile a {
+  text-decoration: none;
+}
+section#user section.profile img {
+  width: 50%;
+  max-width: 250px;
+  border-radius: 5%;
+}
+section#user section.profile .username {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+section#user section.profile .username h1 {
+  font-size: 24px;
+}
+section#user section.profile .username a {
+  padding-top: 5px;
+  display: block;
+  font-weight: bold;
+  text-decoration: none;
+}
+section#user section.profile .bio {
+  font-size: 18px;
+}
+section#user section.profile ul.details {
+  margin-block: 10px;
+}
+section#user section.profile ul.details li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+section#user section.profile ul.details li span, section#user section.profile ul.details li a {
+  padding-bottom: 2 px;
+}
+section#user section.profile ul.followers {
+  list-style: none;
+  display: flex;
+  margin-top: 20px;
+}
+section#user section.profile ul.followers li {
+  text-align: center;
+  border-inline: 1px solid rgb(212, 212, 212);
+  padding-inline: 10px;
+}
+section#user section.profile ul.followers li h5 {
+  font-weight: normal;
+}
+
+.error {
+  text-align: center;
+  color: red;
+  margin-top: 40px;
 }/*# sourceMappingURL=styles.css.map */

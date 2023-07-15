@@ -1,8 +1,14 @@
+import { GrLocation } from "react-icons/gr";
+import { BsGlobeAmericas } from "react-icons/bs";
+import { AiOutlineTwitter } from "react-icons/ai";
+
 interface Props {
   profilePicture?: string;
   name?: string;
   username?: string;
   bio?: string;
+
+  link?: string;
 
   repositories?: number;
   followers?: number;
@@ -10,7 +16,7 @@ interface Props {
 
   location?: string;
   website?: string;
-  company?: string | undefined | null;
+  twitter?: string;
 }
 
 const User = ({
@@ -21,33 +27,50 @@ const User = ({
   repositories = 11,
   followers = 36,
   following = 34,
+  link = "https://github.com/arberlisaj",
   location = "San Francisco",
   website = "janedoe.com",
-  company = "No Comany",
+  twitter = "No Twitter",
 }: Props) => {
   return (
     <section role="user-section" id="user">
       <section role="profile-details" className="profile">
         <img src={profilePicture} alt="profile picture" />
         <section className="content">
-          <div className="flex">
-            <span>{name}</span>
-            <span>{username}</span>
+          <div className="username">
+            <h1>{name}</h1>
+            <a target="_blank" href={link}>
+              @{username}
+            </a>
           </div>
-          <p>{bio}</p>
-          <p>{location}</p>
-          <p>{website}</p>
-          <p>{company}</p>
+          <p className="bio">{bio}</p>
+          <ul className="details">
+            <li>
+              <GrLocation />
+              <span>{location}</span>
+            </li>
+            <li>
+              <BsGlobeAmericas />
+              <a href={website}>{website}</a>
+            </li>
 
-          <ul>
             <li>
-              followers <span>{followers}</span>
+              <AiOutlineTwitter />
+              <span>{twitter}</span>
+            </li>
+          </ul>
+          <ul className="followers">
+            <li>
+              <h1>{followers}</h1>
+              <h5>Followers</h5>
             </li>
             <li>
-              following<span>{following}</span>
+              <h1>{following}</h1>
+              <h5>Following</h5>
             </li>
             <li>
-              repos <span>{repositories}</span>
+              <h1>{repositories}</h1>
+              <h5>Repositories</h5>
             </li>
           </ul>
         </section>

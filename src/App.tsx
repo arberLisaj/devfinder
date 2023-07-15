@@ -11,6 +11,9 @@ interface User {
   name: string;
   bio: string;
 
+  blog: string;
+  html_url: string;
+  twitter_username: string;
   public_repos: number;
   followers: number;
   following: number;
@@ -33,6 +36,7 @@ const App = () => {
 
   const [inputValue, setInputValue] = useState("arberlisaj");
   const [user, setUser] = useState<User>();
+  const [error, setError] = useState("");
   useEffect(() => {
     const controller = new AbortController();
     axios
@@ -42,8 +46,9 @@ const App = () => {
       .then((res) => setUser(res.data))
       .catch((err) => {
         if (err instanceof CanceledError) return;
-        console.log(err);
+        setError(err.message);
       });
+    return () => controller.abort();
   }, [inputValue]);
 
   console.log(user);
@@ -51,22 +56,23 @@ const App = () => {
   return (
     <main role="main">
       <Header darkMode={darkMode} setDarkMode={(data) => setDarkMode(data)} />
-      <FilterUsers
-        inputValue={inputValue}
-        setInputValue={(data) => setInputValue(data)}
-      />
-      <User
-        profilePicture={user?.avatar_url}
-        name={user?.name}
-        username={user?.login}
-        bio={user?.bio}
-        repositories={user?.public_repos}
-        followers={user?.followers}
-        following={user?.following}
-        location={user?.location}
-        website={user?.website}
-        company={user?.company}
-      />
+      <FilterUsers setInputValue={(data) => setInputValue(data)} />
+      {error && <p className="error">API rate limit exceeded</p>}
+      {!error && (
+        <User
+          profilePicture={user?.avatar_url}
+          name={user?.name}
+          username={user?.login}
+          bio={user?.bio}
+          link={user?.html_url}
+          repositories={user?.public_repos}
+          followers={user?.followers}
+          following={user?.following}
+          location={user?.location}
+          website={user?.blog}
+          twitter={user?.twitter_username}
+        />
+      )}
     </main>
   );
 };
