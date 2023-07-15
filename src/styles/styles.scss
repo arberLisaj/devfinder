@@ -30,7 +30,7 @@ header {
       background-color: rgba(208, 208, 208, 0.527);
       border-radius: 4px;
       width: 100%;
-      max-width: 500px;
+      max-width: 400px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -73,19 +73,22 @@ section#user {
   margin: 100px auto 0;
   padding: 20px 10px 20px 15px;
   border-radius: 10px;
+  margin-bottom: 60px;
 
   .github-link {
-    text-align: center;
+    text-align: left;
     width: 100%;
     display: block;
     text-decoration: none;
     font-weight: bold;
+    padding-top: 10px;
+    margin-left: -3px;
   }
   .profile {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
+    // gap: 0px;
     img {
       height: 70px;
       width: 70px;
@@ -97,11 +100,15 @@ section#user {
       text-align: center;
 
       li {
+        cursor: pointer;
         padding-inline: 8px;
         h1,
         h5 {
           font-weight: normal;
           font-size: 14px;
+        }
+        h1 {
+          font-weight: bold;
         }
       }
     }
@@ -110,7 +117,7 @@ section#user {
   .description {
     .bio {
       font-weight: bold;
-      padding-block: 8px;
+      padding-block: 0px 8px;
       word-wrap: break-word;
     }
   }

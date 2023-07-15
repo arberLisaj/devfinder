@@ -1,6 +1,7 @@
 import { GrLocation } from "react-icons/gr";
 import { BsGlobeAmericas } from "react-icons/bs";
 import { AiOutlineTwitter } from "react-icons/ai";
+import { MdOutlineBusiness } from "react-icons/md";
 
 interface Props {
   profilePicture?: string;
@@ -17,6 +18,8 @@ interface Props {
   location?: string;
   website?: string;
   twitter?: string;
+
+  company?: string | null;
 }
 
 const User = ({
@@ -30,12 +33,10 @@ const User = ({
   location = "San Francisco",
   website = "janedoe.com",
   twitter = "No Twitter",
+  company,
 }: Props) => {
   return (
     <section id="user" role="user-section">
-      <a className="github-link" target="_blank" href={link}>
-        @{username}
-      </a>
       <section className="profile">
         <img src={profilePicture} alt="profile picture" />
         <ul>
@@ -55,6 +56,9 @@ const User = ({
       </section>
 
       <section className="description">
+        <a className="github-link" target="_blank" href={link}>
+          @{username}
+        </a>
         <p className="bio">{bio}</p>
       </section>
 
@@ -79,7 +83,17 @@ const User = ({
           {twitter && (
             <>
               <AiOutlineTwitter size="17px" color="blue" />
-              <span>{twitter}</span>
+              <a target="blank" href={`https://twitter.com/${twitter}`}>
+                {twitter}
+              </a>
+            </>
+          )}
+        </li>
+        <li>
+          {company && (
+            <>
+              <MdOutlineBusiness />
+              <span> {company}</span>
             </>
           )}
         </li>

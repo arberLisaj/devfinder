@@ -7,15 +7,13 @@ interface Props {
 const Header = ({ setInputValue }: Props) => {
   const input = useRef<HTMLInputElement>(null);
 
-  const handleInput = () => {
-    if (input.current !== null) {
-      setInputValue(input.current.value);
-    }
-  };
-
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === "Enter") {
-      if (input.current !== null) setInputValue(input.current.value);
+      if (input.current !== null) {
+        // removing all white space
+        let string = input.current.value.replace(/\s+/g, "");
+        setInputValue(string);
+      }
     }
   };
   return (
@@ -32,7 +30,7 @@ const Header = ({ setInputValue }: Props) => {
             placeholder="Search Github username"
             onKeyDown={handleKeyDown}
           />
-          <button onClick={handleInput}>Search</button>
+          {/* <button onClick={handleInput}>Search</button> */}
         </section>
       </section>
     </header>

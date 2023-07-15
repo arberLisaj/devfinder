@@ -36,12 +36,13 @@ const App = () => {
       .then((res) => setUser(res.data))
       .catch((err) => {
         if (err instanceof CanceledError) return;
+        location.reload();
         setError(err.message);
       });
     return () => controller.abort();
   }, [inputValue]);
 
-  // console.log(user);
+  console.log(user);
 
   return (
     <main role="main">
@@ -60,6 +61,7 @@ const App = () => {
           location={user?.location}
           website={user?.blog}
           twitter={user?.twitter_username}
+          company={user?.company}
         />
       )}
     </main>
