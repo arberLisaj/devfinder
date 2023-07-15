@@ -41,12 +41,12 @@ const App = () => {
     return () => controller.abort();
   }, [inputValue]);
 
+  // console.log(user);
+
   return (
     <main role="main">
-      <Header
-        setInputValue={(data) => setInputValue(data)}
-      />
-      {error && <p className="error">API rate limit exceeded</p>}
+      <Header setInputValue={(data) => setInputValue(data)} />
+      {error && <p className="error">{error}</p>}
       {!error && (
         <User
           profilePicture={user?.avatar_url}

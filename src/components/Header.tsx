@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { BsSearch } from "react-icons/bs";
 
 interface Props {
@@ -13,6 +13,11 @@ const Header = ({ setInputValue }: Props) => {
     }
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter") {
+      if (input.current !== null) setInputValue(input.current.value);
+    }
+  };
   return (
     <header role="header">
       <section role="header-container" className="header-container">
@@ -21,7 +26,12 @@ const Header = ({ setInputValue }: Props) => {
           <span>
             <BsSearch />
           </span>
-          <input ref={input} type="text" placeholder="Search Github username" />
+          <input
+            ref={input}
+            type="text"
+            placeholder="Search Github username"
+            onKeyDown={handleKeyDown}
+          />
           <button onClick={handleInput}>Search</button>
         </section>
       </section>

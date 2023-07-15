@@ -21,7 +21,6 @@ interface Props {
 
 const User = ({
   profilePicture,
-  name = "Jane Doe",
   username = "janeDoe45",
   bio = "Coding is Life 😎",
   repositories = 11,
@@ -33,48 +32,58 @@ const User = ({
   twitter = "No Twitter",
 }: Props) => {
   return (
-    <section role="user-section" id="user">
-      <section role="profile-details" className="profile">
+    <section id="user" role="user-section">
+      <a className="github-link" target="_blank" href={link}>
+        @{username}
+      </a>
+      <section className="profile">
         <img src={profilePicture} alt="profile picture" />
-        <section className="content">
-          <div className="username">
-            <h1>{name}</h1>
-            <a target="_blank" href={link}>
-              @{username}
-            </a>
-          </div>
-          <p className="bio">{bio}</p>
-          <ul className="details">
-            <li>
-              <GrLocation  size="18px"/>
+        <ul>
+          <li>
+            <h1>{repositories}</h1>
+            <h5>Repositories</h5>
+          </li>
+          <li>
+            <h1>{followers}</h1>
+            <h5>Followers</h5>
+          </li>
+          <li>
+            <h1>{following}</h1>
+            <h5>Following</h5>
+          </li>
+        </ul>
+      </section>
+
+      <section className="description">
+        <p className="bio">{bio}</p>
+      </section>
+
+      <ul className="details">
+        <li>
+          {location && (
+            <>
+              <GrLocation color="red" />
               <span>{location}</span>
-            </li>
-            <li>
+            </>
+          )}
+        </li>
+        <li>
+          {website && (
+            <>
               <BsGlobeAmericas />
               <a href={website}>{website}</a>
-            </li>
-
-            <li>
-              <AiOutlineTwitter size="20px" />
+            </>
+          )}
+        </li>
+        <li>
+          {twitter && (
+            <>
+              <AiOutlineTwitter size="17px" color="blue" />
               <span>{twitter}</span>
-            </li>
-          </ul>
-          <ul className="followers">
-            <li>
-              <h1>{followers}</h1>
-              <h5>Followers</h5>
-            </li>
-            <li>
-              <h1>{following}</h1>
-              <h5>Following</h5>
-            </li>
-            <li>
-              <h1>{repositories}</h1>
-              <h5>Repositories</h5>
-            </li>
-          </ul>
-        </section>
-      </section>
+            </>
+          )}
+        </li>
+      </ul>
     </section>
   );
 };

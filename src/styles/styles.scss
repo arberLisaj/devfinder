@@ -5,9 +5,16 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+button:hover {
+  opacity: 0.8;
+}
 
 // Header styles
 header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   section.header-container {
     display: flex;
@@ -16,11 +23,11 @@ header {
     width: 100%;
     max-width: 1000px;
     margin: auto;
-    padding-block: 10px;
+    padding: 10px;
     gap: 20px;
 
     section#filter {
-      background-color: rgb(232, 232, 232);
+      background-color: rgba(208, 208, 208, 0.527);
       border-radius: 4px;
       width: 100%;
       max-width: 500px;
@@ -30,12 +37,12 @@ header {
       padding-inline: 35px 0px;
       position: relative;
       overflow: hidden;
-      input{
+      input {
         padding: 10px;
         width: 100%;
         background-color: transparent;
         border: none;
-        &:focus{
+        &:focus {
           outline: none;
         }
       }
@@ -45,11 +52,11 @@ header {
         padding-top: 4px;
       }
 
-      button{
-        border: none;
+      button {
         background-color: rgb(108, 108, 191);
         color: white;
-        padding: 10px 25px;
+        padding: 10px 35px;
+        border: none;
         border-radius: 1px;
         cursor: pointer;
       }
@@ -57,71 +64,76 @@ header {
   }
 }
 
-// User section
 section#user {
-  width: 100%;
-  max-width: 1000px;
-  margin: 30px auto;
-  border-radius: 20px;
-  section.profile {
+  border: 1px solid gainsboro;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  overflow: hidden;
+  width: 90%;
+  max-width: 350px;
+  margin: 100px auto 0;
+  padding: 20px 10px 20px 15px;
+  border-radius: 10px;
+
+  .github-link {
+    text-align: center;
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .profile {
     display: flex;
     align-items: center;
-    gap: 20px;
-
-    a {
-      text-decoration: none;
-    }
+    justify-content: space-between;
+    gap: 10px;
     img {
-      width: 50%;
-      max-width: 250px;
-      border-radius: 5%;
+      height: 70px;
+      width: 70px;
+      border-radius: 50%;
     }
-    .username {
+    ul {
       display: flex;
-      align-items: center;
-      gap: 6px;
-      h1 {
-        font-size: 24px;
-      }
-      a {
-        display: block;
-        font-weight: bold;
-        text-decoration: none;
-      }
-    }
-    .bio {
-      font-size: 18px;
-    }
-    ul.details {
-      margin-block: 10px;
-      li {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-
-        span,
-        a {
-          padding-bottom: 2 px;
-        }
-      }
-    }
-    ul.followers {
       list-style: none;
-      display: flex;
-      margin-top: 20px;
+      text-align: center;
+
       li {
-        text-align: center;
-        border-inline: 1px solid rgb(212, 212, 212);
-        padding-inline: 10px;
+        padding-inline: 8px;
+        h1,
         h5 {
           font-weight: normal;
+          font-size: 14px;
         }
+      }
+    }
+  }
+
+  .description {
+    .bio {
+      font-weight: bold;
+      padding-block: 8px;
+      word-wrap: break-word;
+    }
+  }
+  .details {
+    li {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      span,
+      a {
+        padding-bottom: 3px;
+        margin-left: 5px;
+        text-decoration: none;
       }
     }
   }
 }
 
 .error {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
   text-align: center;
   color: red;
   margin-top: 40px;
