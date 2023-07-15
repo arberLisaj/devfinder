@@ -9,7 +9,7 @@
 // Header styles
 header {
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  section {
+  section.header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,68 +17,43 @@ header {
     max-width: 1000px;
     margin: auto;
     padding-block: 10px;
+    gap: 20px;
 
-    h1 {
-      margin-top: -1px;
-    }
-
-    button {
-      border: none;
-      background-color: transparent;
+    section#filter {
+      background-color: rgb(232, 232, 232);
+      border-radius: 4px;
+      width: 100%;
+      max-width: 500px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 7px;
-      border-radius: 30px;
-      cursor: pointer;
-      padding: 10px;
-      display: grid;
-      font-size: 20px;
-      margin-bottom: -3px;
-      &:hover {
-        opacity: 0.7;
-        background-color: rgba(211, 211, 211, 0.498);
+      padding-inline: 35px 0px;
+      position: relative;
+      overflow: hidden;
+      input{
+        padding: 10px;
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        &:focus{
+          outline: none;
+        }
+      }
+      span {
+        position: absolute;
+        left: 14px;
+        padding-top: 4px;
+      }
+
+      button{
+        border: none;
+        background-color: rgb(108, 108, 191);
+        color: white;
+        padding: 10px 25px;
+        border-radius: 1px;
+        cursor: pointer;
       }
     }
-  }
-}
-
-// Filter section
-section#filter {
-  border: 1px solid gainsboro;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  width: 100%;
-  margin: auto;
-  max-width: 1000px;
-  padding: 0 5px 0 20px;
-  position: relative;
-  background-color: rgb(255, 255, 255);
-  border-radius: 6px;
-  margin-block: 20px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  span {
-    padding-top: 2px;
-    margin-right: 10px;
-  }
-  input {
-    border: none;
-    padding: 15px 10px;
-    width: 100%;
-    &:focus {
-      outline: none;
-    }
-  }
-  button {
-    background-color: blue;
-    height: 100%;
-    border: none;
-    color: white;
-    padding: 10px 35px;
-    border-radius: 3px;
-    cursor: pointer;
   }
 }
 
@@ -86,14 +61,14 @@ section#filter {
 section#user {
   width: 100%;
   max-width: 1000px;
-  margin: auto;
+  margin: 30px auto;
   border-radius: 20px;
   section.profile {
     display: flex;
     align-items: center;
-    gap: 10px;
-    
-    a{
+    gap: 20px;
+
+    a {
       text-decoration: none;
     }
     img {
@@ -104,12 +79,11 @@ section#user {
     .username {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 6px;
       h1 {
         font-size: 24px;
       }
       a {
-        padding-top: 5px;
         display: block;
         font-weight: bold;
         text-decoration: none;
@@ -125,7 +99,8 @@ section#user {
         align-items: center;
         gap: 5px;
 
-        span , a{
+        span,
+        a {
           padding-bottom: 2 px;
         }
       }
@@ -137,7 +112,7 @@ section#user {
       li {
         text-align: center;
         border-inline: 1px solid rgb(212, 212, 212);
-        padding-inline:10px;
+        padding-inline: 10px;
         h5 {
           font-weight: normal;
         }

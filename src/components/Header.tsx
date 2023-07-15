@@ -1,18 +1,29 @@
-import { BsFillMoonFill, BsMoon } from "react-icons/bs";
+import { useRef } from "react";
+import { BsSearch } from "react-icons/bs";
 
 interface Props {
-  darkMode: boolean;
-  setDarkMode: (something: boolean) => void;
+  setInputValue: (something: string) => void;
 }
+const Header = ({ setInputValue }: Props) => {
+  const input = useRef<HTMLInputElement>(null);
 
-const Header = ({ darkMode, setDarkMode }: Props) => {
+  const handleInput = () => {
+    if (input.current !== null) {
+      setInputValue(input.current.value);
+    }
+  };
+
   return (
     <header role="header">
-      <section role="header-container">
+      <section role="header-container" className="header-container">
         <h1>devfinder</h1>
-        <button onClick={() => setDarkMode(!darkMode)}>
-          {darkMode ? <BsFillMoonFill /> : <BsMoon />}
-        </button>
+        <section role="searchbox" id="filter">
+          <span>
+            <BsSearch />
+          </span>
+          <input ref={input} type="text" placeholder="Search Github username" />
+          <button onClick={handleInput}>Search</button>
+        </section>
       </section>
     </header>
   );

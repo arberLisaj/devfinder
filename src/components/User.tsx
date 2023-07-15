@@ -46,7 +46,7 @@ const User = ({
           <p className="bio">{bio}</p>
           <ul className="details">
             <li>
-              <GrLocation />
+              <GrLocation  size="18px"/>
               <span>{location}</span>
             </li>
             <li>
@@ -55,7 +55,7 @@ const User = ({
             </li>
 
             <li>
-              <AiOutlineTwitter />
+              <AiOutlineTwitter size="20px" />
               <span>{twitter}</span>
             </li>
           </ul>
