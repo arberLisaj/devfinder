@@ -1,3 +1,4 @@
+@use "./variables";
 * {
   margin: 0;
   padding: 0;
@@ -14,8 +15,8 @@ header#header {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  background-color: variables.$white;
+  box-shadow: variables.$box-shadow 1.95px 1.95px 2.6px;
   section.header-container {
     display: flex;
     align-items: center;
@@ -27,7 +28,7 @@ header#header {
     gap: 20px;
 
     section#filter {
-      background-color: rgba(208, 208, 208, 0.527);
+      background-color: variables.$filter-backgroudn;
       border-radius: 4px;
       width: 100%;
       max-width: 400px;
@@ -53,8 +54,8 @@ header#header {
       }
 
       button {
-        background-color: rgb(108, 108, 191);
-        color: white;
+        background-color: variables.$button-bg;
+        color: variables.$white;
         padding: 10px 35px;
         border: none;
         border-radius: 1px;
@@ -70,9 +71,9 @@ header#header {
   left: 0;
   height: 100vh;
   width: 100%;
-  background-color: rgba(128, 128, 128, 0.459);
+  background-color: variables.$tint-clr;
   .info {
-    background-color: white;
+    background-color: variables.$white;
     max-width: fit-content;
     border-radius: 20px;
     width: 80%;
@@ -84,7 +85,7 @@ header#header {
 
   header {
     text-align: center;
-    border-bottom: 1px solid gainsboro;
+    border-bottom: 1px solid variables.$gainsboro;
     position: relative;
     padding: 12px;
 
@@ -96,41 +97,41 @@ header#header {
     }
   }
   ul {
-    padding:10px 10px 80px;
+    padding: 10px 10px 80px;
     overflow-y: scroll;
-    max-height: 330px; 
+    max-height: 330px;
     li {
       display: flex;
       gap: 5px;
       align-items: center;
       justify-content: space-between;
       padding-block: 5px 8px;
-      border-bottom: 1px solid gainsboro;
+      border-bottom: 1px solid variables.$gainsboro;
 
-      .followers{
+      .followers {
         display: flex;
         align-items: center;
         gap: 10px;
-        
+
         font-size: 15px;
       }
-      img{
+      img {
         height: 35px;
         width: 35px;
         border-radius: 50%;
       }
-      a{
+      a {
         text-decoration: none;
       }
       span {
         margin-right: 5px;
-        color: gray;
+        color: variables.$gray;
         font-size: 18px;
         position: relative;
         bottom: -3px;
       }
-      
-      .language{
+
+      .language {
         text-align: left;
         font-size: 14px;
       }
@@ -138,8 +139,8 @@ header#header {
   }
 }
 section#user {
-  border: 1px solid gainsboro;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border: 1px solid variables.$gainsboro;
+  box-shadow: variables.$box-shadow 1.95px 1.95px 2.6px;
   overflow: hidden;
   width: 90%;
   max-width: 350px;
@@ -215,7 +216,7 @@ section#user {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  color: red;
+  color: variables.$danger-clr;
   margin-top: 40px;
 }
 
