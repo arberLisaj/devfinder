@@ -1,15 +1,18 @@
 import { useEffect } from "react";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineClose, AiFillBook } from "react-icons/ai";
 
 interface Repo {
   id: number;
   name: string;
+  html_url: string;
+  language: string;
 }
 interface Props {
   setData: (data: boolean) => void;
   repoData: Repo[];
+  isLoading: boolean;
 }
-const Repositories = ({ setData, repoData }: Props) => {
+const Repositories = ({ setData, repoData, isLoading }: Props) => {
   // esc key press
   useEffect(() => {
     const handleEscKey = (e: KeyboardEvent) => {
@@ -31,8 +34,19 @@ const Repositories = ({ setData, repoData }: Props) => {
           </span>
         </header>
         <ul>
+          {isLoading && <p>Loading...</p>}
           {repoData.map((r) => (
-            <li key={r.id}>{r.name}</li>
+            <li key={r.id}>
+              <div className="link">
+                <span>
+                  <AiFillBook />
+                </span>
+                <a target="_blank" href={r.html_url}>
+                  {r.name}
+                </a>
+              </div>
+              <div className="language">{r.language}</div>
+            </li>
           ))}
         </ul>
       </section>

@@ -5,26 +5,21 @@ import { MdOutlineBusiness } from "react-icons/md";
 import { useEffect, useState } from "react";
 import Followers from "./Followers";
 import Repositories from "./Repositories";
-import axios from "axios";
+import axios, { CanceledError } from "axios";
 
 interface Props {
   profilePicture?: string;
   name?: string;
   username?: string;
   bio?: string;
-
   link?: string;
-
   followers_url?: string;
-
   repositories?: number;
   followers?: number;
   following?: number;
-
   location?: string;
   website?: string;
   twitter?: string;
-
   company?: string | null;
 }
 
@@ -44,15 +39,19 @@ const User = ({
   const [followersContainer, setFollowersContainer] = useState(false);
   const [followingContainer, setFollowingContainer] = useState(false);
   const [repoContainer, setRepoContainer] = useState(false);
-
   const [followersData, setFollowers] = useState([]);
   const [followingData, setFollowing] = useState([]);
   const [repoData, setRepoData] = useState([]);
+  const [isLoading, setLoading] = useState(false);
+  const [endpoint, setEndpoint] = useState("/followers");
 
-  const [endpoint, setEndpoint] = useState("");
   useEffect(() => {
+    setLoading(true);
+    const controller = new AbortController();
     axios
-      .get(`https://api.github.com/users/${username}${endpoint}`)
+      .get(`https://api.github.com/users/${username}${endpoint}`, {
+        signal: controller.signal,
+      })
       .then((res) => {
         switch (endpoint) {
           case "":
@@ -67,8 +66,15 @@ const User = ({
             setFollowing(res.data);
             break;
         }
+        setLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        if (err instanceof CanceledError) return;
+        console.log(err);
+        setLoading(false);
+      });
+
+    return () => controller.abort();
   }, [endpoint]);
 
   return (
@@ -107,6 +113,7 @@ const User = ({
       </section>
       {followersContainer && (
         <Followers
+          isLoading={isLoading}
           entity={followersData}
           title="Followers"
           setData={(data) => setFollowersContainer(data)}
@@ -114,6 +121,7 @@ const User = ({
       )}
       {followingContainer && (
         <Followers
+          isLoading={isLoading}
           entity={followingData}
           title="Following"
           setData={(data) => setFollowingContainer(data)}
@@ -121,6 +129,7 @@ const User = ({
       )}
       {repoContainer && (
         <Repositories
+          isLoading={isLoading}
           repoData={repoData}
           setData={(data) => setRepoContainer(data)}
         />

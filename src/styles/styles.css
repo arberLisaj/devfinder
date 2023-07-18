@@ -79,7 +79,6 @@ header#header section.header-container section#filter button {
   height: 400px;
   margin: 6rem auto;
   border-radius: 5px;
-  overflow: hidden;
 }
 .container header {
   text-align: center;
@@ -92,6 +91,44 @@ header#header section.header-container section#filter button {
   right: 13px;
   top: 13px;
   cursor: pointer;
+}
+.container ul {
+  padding: 10px 10px 80px;
+  overflow-y: scroll;
+  max-height: 330px;
+}
+.container ul li {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 5px 8px;
+  border-bottom: 1px solid gainsboro;
+}
+.container ul li .followers {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+}
+.container ul li img {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+.container ul li a {
+  text-decoration: none;
+}
+.container ul li span {
+  margin-right: 5px;
+  color: gray;
+  font-size: 18px;
+  position: relative;
+  bottom: -3px;
+}
+.container ul li .language {
+  text-align: left;
+  font-size: 14px;
 }
 
 section#user {

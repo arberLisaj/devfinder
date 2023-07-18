@@ -78,9 +78,8 @@ header#header {
     width: 80%;
     max-width: 350px;
     height: 400px;
-    margin:6rem auto;
+    margin: 6rem auto;
     border-radius: 5px;
-    overflow: hidden;
   }
 
   header {
@@ -89,11 +88,52 @@ header#header {
     position: relative;
     padding: 12px;
 
-    span{
+    span {
       position: absolute;
       right: 13px;
       top: 13px;
       cursor: pointer;
+    }
+  }
+  ul {
+    padding:10px 10px 80px;
+    overflow-y: scroll;
+    max-height: 330px; 
+    li {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      justify-content: space-between;
+      padding-block: 5px 8px;
+      border-bottom: 1px solid gainsboro;
+
+      .followers{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        
+        font-size: 15px;
+      }
+      img{
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+      }
+      a{
+        text-decoration: none;
+      }
+      span {
+        margin-right: 5px;
+        color: gray;
+        font-size: 18px;
+        position: relative;
+        bottom: -3px;
+      }
+      
+      .language{
+        text-align: left;
+        font-size: 14px;
+      }
     }
   }
 }

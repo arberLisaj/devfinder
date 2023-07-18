@@ -4,14 +4,16 @@ import { AiOutlineClose } from "react-icons/ai";
 interface Entity {
   id: number;
   login: string;
+  avatar_url: string;
 }
 interface Props {
   setData: (data: boolean) => void;
   title: string;
+  isLoading: boolean;
   entity: Entity[];
 }
 
-const Followers = ({ setData, title, entity }: Props) => {
+const Followers = ({ setData, title, entity, isLoading }: Props) => {
   useEffect(() => {
     const handleEscKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -34,8 +36,13 @@ const Followers = ({ setData, title, entity }: Props) => {
         </header>
 
         <ul>
+          {isLoading && <p>Loading...</p>}
           {entity.map((e) => (
-            <li key={e.id}>{e.login}</li>
+            <li key={e.id}>
+              <div className="followers">
+                <img src={e.avatar_url} alt="profile" /> {e.login}
+              </div>
+            </li>
           ))}
         </ul>
       </section>
