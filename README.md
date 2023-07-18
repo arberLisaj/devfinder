@@ -8,4 +8,5 @@ Live Demo : https://arberlisaj.github.io/github-user-search/
 - 📱 Responsive Layout
 ## Screenshots
 ![Screenshot (94)](https://github.com/arberLisaj/github-user-search/assets/105673782/4dcb0a2b-a7b6-4eee-927f-67c849355ab0)
-![Screenshot (93)](https://github.com/arberLisaj/github-user-search/assets/105673782/84fa8291-a529-41cf-a023-6e2ff6e756cd)
+![Screenshot (100)](https://github.com/arberLisaj/github-user-search/assets/105673782/2c6c20dd-5946-40dc-8c15-ed772a6a9d6c)
+![Screenshot (101)](https://github.com/arberLisaj/github-user-search/assets/105673782/2a0a06af-0b3c-46b3-a9f4-92034da0193e)
