@@ -10,6 +10,9 @@ interface User {
   name: string;
   bio: string;
 
+  repos_url: string;
+  followers_url: string;
+
   blog: string;
   html_url: string;
   twitter_username: string;
@@ -26,29 +29,33 @@ const App = () => {
   const [inputValue, setInputValue] = useState("arberlisaj");
   const [user, setUser] = useState<User>();
   const [error, setError] = useState("");
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     const controller = new AbortController();
     axios
       .get<User>(`https://api.github.com/users/${inputValue}`, {
         signal: controller.signal,
       })
-      .then((res) => setUser(res.data))
+      .then((res) => {
+        setUser(res.data);
+        setLoading(false);
+      })
       .catch((err) => {
         if (err instanceof CanceledError) return;
-        location.reload();
+        // location.reload();
         setError(err.message);
+        setLoading(false);
       });
     return () => controller.abort();
   }, [inputValue]);
-
-  console.log(user);
-
   return (
     <main role="main">
       <Header setInputValue={(data) => setInputValue(data)} />
       {error && <p className="error">{error}</p>}
-      {!error && (
+      {isLoading && <p className="loading">Loading...</p>}
+      {!error && !isLoading && (
         <User
           profilePicture={user?.avatar_url}
           name={user?.name}
@@ -62,6 +69,7 @@ const App = () => {
           website={user?.blog}
           twitter={user?.twitter_username}
           company={user?.company}
+          followers_url={user?.followers_url}
         />
       )}
     </main>

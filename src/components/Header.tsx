@@ -17,7 +17,7 @@ const Header = ({ setInputValue }: Props) => {
     }
   };
   return (
-    <header role="header">
+    <header id="header" role="header">
       <section role="header-container" className="header-container">
         <h1>devfinder</h1>
         <section role="searchbox" id="filter">
@@ -27,7 +27,7 @@ const Header = ({ setInputValue }: Props) => {
           <input
             ref={input}
             type="text"
-            placeholder="Search Github username"
+            placeholder="Search username"
             onKeyDown={handleKeyDown}
           />
           {/* <button onClick={handleInput}>Search</button> */}

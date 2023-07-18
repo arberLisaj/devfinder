@@ -9,14 +9,14 @@ button:hover {
   opacity: 0.8;
 }
 
-header {
+header#header {
   position: fixed;
   top: 0;
   width: 100%;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
-header section.header-container {
+header#header section.header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -26,7 +26,7 @@ header section.header-container {
   padding: 10px;
   gap: 20px;
 }
-header section.header-container section#filter {
+header#header section.header-container section#filter {
   background-color: rgba(208, 208, 208, 0.527);
   border-radius: 4px;
   width: 100%;
@@ -38,26 +38,59 @@ header section.header-container section#filter {
   position: relative;
   overflow: hidden;
 }
-header section.header-container section#filter input {
+header#header section.header-container section#filter input {
   padding: 10px;
   width: 100%;
   background-color: transparent;
   border: none;
 }
-header section.header-container section#filter input:focus {
+header#header section.header-container section#filter input:focus {
   outline: none;
 }
-header section.header-container section#filter span {
+header#header section.header-container section#filter span {
   position: absolute;
   left: 14px;
   padding-top: 4px;
 }
-header section.header-container section#filter button {
+header#header section.header-container section#filter button {
   background-color: rgb(108, 108, 191);
   color: white;
   padding: 10px 35px;
   border: none;
   border-radius: 1px;
+  cursor: pointer;
+}
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.459);
+}
+.container .info {
+  background-color: white;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  border-radius: 20px;
+  width: 80%;
+  max-width: 350px;
+  height: 400px;
+  margin: 6rem auto;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.container header {
+  text-align: center;
+  border-bottom: 1px solid gainsboro;
+  position: relative;
+  padding: 12px;
+}
+.container header span {
+  position: absolute;
+  right: 13px;
+  top: 13px;
   cursor: pointer;
 }
 
@@ -79,7 +112,7 @@ section#user .github-link {
   text-decoration: none;
   font-weight: bold;
   padding-top: 10px;
-  margin-left: -3px;
+  margin-left: -2px;
 }
 section#user .profile {
   display: flex;
@@ -133,4 +166,34 @@ section#user .details li a {
   text-align: center;
   color: red;
   margin-top: 40px;
+}
+
+.loading {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  section#user {
+    font-size: 14px;
+  }
+  section#user li {
+    padding: 0;
+  }
+  section#user .profile {
+    gap: 10px;
+  }
+  section#user .profile img {
+    height: 50px;
+    width: 50px;
+  }
+  section#user .profile ul {
+    flex-wrap: wrap;
+  }
+  section#user .profile ul li {
+    padding: 2px;
+  }
 }/*# sourceMappingURL=styles.css.map */

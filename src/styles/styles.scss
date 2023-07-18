@@ -10,7 +10,7 @@ button:hover {
 }
 
 // Header styles
-header {
+header#header {
   position: fixed;
   top: 0;
   width: 100%;
@@ -64,6 +64,39 @@ header {
   }
 }
 
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.459);
+  .info {
+    background-color: white;
+    max-width: fit-content;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 350px;
+    height: 400px;
+    margin:6rem auto;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  header {
+    text-align: center;
+    border-bottom: 1px solid gainsboro;
+    position: relative;
+    padding: 12px;
+
+    span{
+      position: absolute;
+      right: 13px;
+      top: 13px;
+      cursor: pointer;
+    }
+  }
+}
 section#user {
   border: 1px solid gainsboro;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -82,7 +115,7 @@ section#user {
     text-decoration: none;
     font-weight: bold;
     padding-top: 10px;
-    margin-left: -3px;
+    margin-left: -2px;
   }
   .profile {
     display: flex;
@@ -144,4 +177,33 @@ section#user {
   text-align: center;
   color: red;
   margin-top: 40px;
+}
+
+.loading {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+}
+@media (max-width: 500px) {
+  section#user {
+    font-size: 14px;
+    li {
+      padding: 0;
+    }
+    .profile {
+      gap: 10px;
+      img {
+        height: 50px;
+        width: 50px;
+      }
+      ul {
+        flex-wrap: wrap;
+        li {
+          padding: 2px;
+        }
+      }
+    }
+  }
 }
