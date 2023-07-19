@@ -9,17 +9,14 @@ interface User {
   login: string;
   name: string;
   bio: string;
-
   repos_url: string;
   followers_url: string;
-
   blog: string;
   html_url: string;
   twitter_username: string;
   public_repos: number;
   followers: number;
   following: number;
-
   location: string;
   website: string;
   company: string | null;
@@ -44,12 +41,15 @@ const App = () => {
       })
       .catch((err) => {
         if (err instanceof CanceledError) return;
-        // location.reload();
         setError(err.message);
         setLoading(false);
       });
     return () => controller.abort();
   }, [inputValue]);
+  useEffect(() => {
+    setError("");
+  }, [inputValue]);
+  
   return (
     <main role="main">
       <Header setInputValue={(data) => setInputValue(data)} />

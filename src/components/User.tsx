@@ -2,10 +2,10 @@ import { GrLocation } from "react-icons/gr";
 import { BsGlobeAmericas } from "react-icons/bs";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { MdOutlineBusiness } from "react-icons/md";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Followers from "./Followers";
 import Repositories from "./Repositories";
-import axios, { CanceledError } from "axios";
+import Following from "./Following";
 
 interface Props {
   profilePicture?: string;
@@ -39,44 +39,6 @@ const User = ({
   const [followersContainer, setFollowersContainer] = useState(false);
   const [followingContainer, setFollowingContainer] = useState(false);
   const [repoContainer, setRepoContainer] = useState(false);
-  const [followersData, setFollowers] = useState([]);
-  const [followingData, setFollowing] = useState([]);
-  const [repoData, setRepoData] = useState([]);
-  const [isLoading, setLoading] = useState(false);
-  const [endpoint, setEndpoint] = useState("/followers");
-
-  useEffect(() => {
-    setLoading(true);
-    const controller = new AbortController();
-    axios
-      .get(`https://api.github.com/users/${username}${endpoint}`, {
-        signal: controller.signal,
-      })
-      .then((res) => {
-        switch (endpoint) {
-          case "":
-            break;
-          case "/repos":
-            setRepoData(res.data);
-            break;
-          case "/followers":
-            setFollowers(res.data);
-            break;
-          case "/following":
-            setFollowing(res.data);
-            break;
-        }
-        setLoading(false);
-      })
-      .catch((err) => {
-        if (err instanceof CanceledError) return;
-        console.log(err);
-        setLoading(false);
-      });
-
-    return () => controller.abort();
-  }, [endpoint]);
-
   return (
     <section id="user" role="user-section">
       <section className="profile">
@@ -85,7 +47,6 @@ const User = ({
           <li
             onClick={() => {
               setRepoContainer(true);
-              setEndpoint("/repos");
             }}
           >
             <h1>{repositories}</h1>
@@ -94,7 +55,6 @@ const User = ({
           <li
             onClick={() => {
               setFollowersContainer(true);
-              setEndpoint("/followers");
             }}
           >
             <h1>{followers}</h1>
@@ -103,7 +63,6 @@ const User = ({
           <li
             onClick={() => {
               setFollowingContainer(true);
-              setEndpoint("/following");
             }}
           >
             <h1>{following}</h1>
@@ -113,24 +72,19 @@ const User = ({
       </section>
       {followersContainer && (
         <Followers
-          isLoading={isLoading}
-          entity={followersData}
-          title="Followers"
           setData={(data) => setFollowersContainer(data)}
+          username={username}
         />
       )}
       {followingContainer && (
-        <Followers
-          isLoading={isLoading}
-          entity={followingData}
-          title="Following"
+        <Following
           setData={(data) => setFollowingContainer(data)}
+          username={username}
         />
       )}
       {repoContainer && (
         <Repositories
-          isLoading={isLoading}
-          repoData={repoData}
+          username={username}
           setData={(data) => setRepoContainer(data)}
         />
       )}
