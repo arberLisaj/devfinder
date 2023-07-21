@@ -1,6 +1,7 @@
-import axios, { CanceledError } from "axios";
 import { useEffect, useState } from "react";
+import axios, { CanceledError } from "axios";
 import { AiOutlineClose, AiFillBook } from "react-icons/ai";
+import Spinner from "../assets/spinner.svg";
 
 interface Repo {
   id: number;
@@ -46,6 +47,7 @@ const Repositories = ({ setData, username }: Props) => {
       });
     return () => controller.abort();
   }, []);
+  
   return (
     <section className="container" onClick={() => setData(false)}>
       <section className="info" onClick={(e) => e.stopPropagation()}>
@@ -57,7 +59,9 @@ const Repositories = ({ setData, username }: Props) => {
         </header>
         <ul>
           {error && <p>{error}</p>}
-          {isLoading && <p className="loading">Loading...</p>}
+          {isLoading && (
+            <img className="loading" src={Spinner} alt="Loading..." />
+          )}
           {repos.map((r) => (
             <li key={r.id}>
               <div className="link">

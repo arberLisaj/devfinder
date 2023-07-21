@@ -1,6 +1,7 @@
 import axios, { CanceledError } from "axios";
 import { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
+import Spinner from "../assets/spinner.svg";
 
 interface Following {
   id: number;
@@ -22,6 +23,7 @@ const Followers = ({ setData, username }: Props) => {
     document.addEventListener("keydown", handleEscKey);
     return () => {
       document.removeEventListener("keydown", handleEscKey);
+      
     };
   }, []);
 
@@ -60,7 +62,9 @@ const Followers = ({ setData, username }: Props) => {
         </header>
 
         <ul>
-          {isLoading && <p className="loading">Loading...</p>}
+          {isLoading && (
+            <img className="loading" src={Spinner} alt="Loading..." />
+          )}
           {error && <p>{error}</p>}
           {followers.map((e) => (
             <li key={e.id}>

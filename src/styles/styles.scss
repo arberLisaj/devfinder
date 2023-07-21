@@ -222,10 +222,18 @@ section#user {
 
 .loading {
   position: absolute;
-  top: 40%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%);
   text-align: center;
+  height: fit-content;
+  width: fit-content;
+  animation: rotation 1.2s infinite linear;
+}
+.main-loading {
+  padding-top: 2em;
+  height: fit-content;
+  width: fit-content;
 }
 @media (max-width: 500px) {
   section#user {
@@ -246,5 +254,14 @@ section#user {
         }
       }
     }
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
   }
 }

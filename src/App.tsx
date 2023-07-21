@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios, { CanceledError } from "axios";
 import Header from "./components/Header";
 import User from "./components/User";
+import Spinner from "./assets/spinner.svg";
 import "./styles/styles.css";
 
 interface User {
@@ -49,12 +50,13 @@ const App = () => {
   useEffect(() => {
     setError("");
   }, [inputValue]);
-  
+
   return (
     <main role="main">
       <Header setInputValue={(data) => setInputValue(data)} />
       {error && <p className="error">{error}</p>}
-      {isLoading && <p className="loading">Loading...</p>}
+      {isLoading && <img className="loading" src={Spinner} alt="Loading..." />}
+
       {!error && !isLoading && (
         <User
           profilePicture={user?.avatar_url}

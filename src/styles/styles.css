@@ -207,10 +207,23 @@ section#user .details li a {
 
 .loading {
   position: absolute;
-  top: 40%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%);
   text-align: center;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  animation: rotation 1.2s infinite linear;
+}
+
+.main-loading {
+  padding-top: 2em;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 @media (max-width: 500px) {
@@ -232,5 +245,13 @@ section#user .details li a {
   }
   section#user .profile ul li {
     padding: 2px;
+  }
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
   }
 }/*# sourceMappingURL=styles.css.map */
