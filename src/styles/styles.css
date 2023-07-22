@@ -27,7 +27,7 @@ header#header section.header-container {
   gap: 20px;
 }
 header#header section.header-container section#filter {
-  background-color: rgba(208, 208, 208, 0.527);
+  background-color: rgba(208, 208, 208, 0.331);
   border-radius: 4px;
   width: 100%;
   max-width: 400px;
@@ -180,7 +180,7 @@ section#user .profile ul li h1 {
 }
 section#user .description .bio {
   font-weight: bold;
-  padding-block: 0px 8px;
+  padding-block: 0px 5px;
   word-wrap: break-word;
 }
 section#user .details li {
@@ -207,23 +207,19 @@ section#user .details li a {
 
 .loading {
   position: absolute;
-  top: 20%;
+  top: 300px;
   left: 50%;
-  transform: translate(-50%);
+  transform: translateY(-50%);
   text-align: center;
   height: -moz-fit-content;
   height: fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  animation: rotation 1.2s infinite linear;
+  animation: rotation 0.8s infinite linear;
 }
 
 .main-loading {
-  padding-top: 2em;
-  height: -moz-fit-content;
-  height: fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  top: 50%;
 }
 
 @media (max-width: 500px) {

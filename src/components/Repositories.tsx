@@ -47,7 +47,7 @@ const Repositories = ({ setData, username }: Props) => {
       });
     return () => controller.abort();
   }, []);
-  
+
   return (
     <section className="container" onClick={() => setData(false)}>
       <section className="info" onClick={(e) => e.stopPropagation()}>

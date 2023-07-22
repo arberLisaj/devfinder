@@ -7,6 +7,7 @@ interface Following {
   id: number;
   login: string;
   avatar_url: string;
+  html_url: string;
 }
 interface Props {
   setData: (data: boolean) => void;
@@ -48,7 +49,6 @@ const Following = ({ setData, username }: Props) => {
       });
 
     return () => controller.abort();
-    
   }, []);
 
   return (
@@ -69,7 +69,8 @@ const Following = ({ setData, username }: Props) => {
           {following.map((e) => (
             <li key={e.id}>
               <div className="followers">
-                <img src={e.avatar_url} alt="profile" /> {e.login}
+                <img src={e.avatar_url} alt="profile" />
+                <a href={e.html_url}>{e.login}</a>
               </div>
             </li>
           ))}

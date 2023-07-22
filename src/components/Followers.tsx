@@ -7,6 +7,7 @@ interface Following {
   id: number;
   login: string;
   avatar_url: string;
+  html_url: string;
 }
 interface Props {
   setData: (data: boolean) => void;
@@ -14,19 +15,6 @@ interface Props {
 }
 
 const Followers = ({ setData, username }: Props) => {
-  useEffect(() => {
-    const handleEscKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setData(false);
-      }
-    };
-    document.addEventListener("keydown", handleEscKey);
-    return () => {
-      document.removeEventListener("keydown", handleEscKey);
-      
-    };
-  }, []);
-
   const [followers, setFollowers] = useState<Following[]>([]);
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -51,6 +39,17 @@ const Followers = ({ setData, username }: Props) => {
     return () => controller.abort();
   }, []);
 
+  useEffect(() => {
+    const handleEscKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setData(false);
+      }
+    };
+    document.addEventListener("keydown", handleEscKey);
+    return () => {
+      document.removeEventListener("keydown", handleEscKey);
+    };
+  }, []);
   return (
     <section className="container" onClick={() => setData(false)}>
       <section className="info" onClick={(e) => e.stopPropagation()}>
@@ -69,7 +68,10 @@ const Followers = ({ setData, username }: Props) => {
           {followers.map((e) => (
             <li key={e.id}>
               <div className="followers">
-                <img src={e.avatar_url} alt="profile" /> {e.login}
+                <img src={e.avatar_url} alt="profile" />{" "}
+                <a target="_blank" href={e.html_url}>
+                  {e.login}
+                </a>
               </div>
             </li>
           ))}
