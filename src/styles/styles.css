@@ -248,8 +248,8 @@ section#user .details li a {
     justify-content: space-around;
   }
   section#user .profile img {
-    height: 35px;
-    width: 35px;
+    height: 50px;
+    width: 50px;
   }
   section#user .profile ul {
     flex-wrap: wrap;
@@ -260,6 +260,14 @@ section#user .details li a {
   }
   section#user .profile ul li h5 {
     font-size: 12px;
+  }
+  section#user .container .info {
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+  }
+  section#user .container .info ul {
+    min-height: 100vh;
   }
 }
 @keyframes rotation {

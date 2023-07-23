@@ -248,12 +248,12 @@ section#user {
 @media (max-width: 500px) {
   section#user {
     font-size: 13px;
-    
+
     .profile {
       justify-content: space-around;
       img {
-        height: 35px;
-        width: 35px;
+        height: 50px;
+        width: 50px;
       }
       ul {
         flex-wrap: wrap;
@@ -263,6 +263,16 @@ section#user {
           h5 {
             font-size: 12px;
           }
+        }
+      }
+    }
+    .container {
+      .info {
+        margin: 0;
+        width: 100%;
+        min-height: 100vh;
+        ul {
+          min-height: 100vh;
         }
       }
     }
