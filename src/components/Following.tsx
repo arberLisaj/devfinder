@@ -70,7 +70,9 @@ const Following = ({ setData, username }: Props) => {
             <li key={e.id}>
               <div className="followers">
                 <img src={e.avatar_url} alt="profile" />
-                <a href={e.html_url}>{e.login}</a>
+                <a target="_blank" href={e.html_url}>
+                  {e.login}
+                </a>
               </div>
             </li>
           ))}

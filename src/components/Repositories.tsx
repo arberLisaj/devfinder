@@ -72,7 +72,7 @@ const Repositories = ({ setData, username }: Props) => {
                   {r.name}
                 </a>
               </div>
-              <div className="language">{r.language}</div>
+              <p className="language">{r.language}</p>
             </li>
           ))}
         </ul>

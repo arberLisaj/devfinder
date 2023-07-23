@@ -56,7 +56,9 @@ const App = () => {
       <Header setInputValue={(data) => setInputValue(data)} />
       {error && <p className="error">{error}</p>}
       {isLoading && (
-        <img className="main-loading" src={Spinner} alt="Loading..." />
+        <div className="loading-container">
+          <img className="main-loading" src={Spinner} alt="Loading..." />
+        </div>
       )}
 
       {!error && !isLoading && (

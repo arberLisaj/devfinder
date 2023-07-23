@@ -68,7 +68,7 @@ const Followers = ({ setData, username }: Props) => {
           {followers.map((e) => (
             <li key={e.id}>
               <div className="followers">
-                <img src={e.avatar_url} alt="profile" />{" "}
+                <img src={e.avatar_url} alt="profile" />
                 <a target="_blank" href={e.html_url}>
                   {e.login}
                 </a>

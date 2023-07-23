@@ -109,7 +109,7 @@ const User = ({
           {website && (
             <>
               <BsGlobeAmericas />
-              <a href={website}>{website}</a>
+              <a target="_blank" href={website}>{website}</a>
             </>
           )}
         </li>
