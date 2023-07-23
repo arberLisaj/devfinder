@@ -270,7 +270,9 @@ section#user {
       .info {
         margin: 0;
         width: 100%;
-        min-height: 100vh;
+        position: fixed;
+        top: 0;
+        height: 100vh;
         ul {
           min-height: 100vh;
         }

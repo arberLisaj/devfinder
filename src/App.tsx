@@ -24,7 +24,7 @@ interface User {
 }
 
 const App = () => {
-  const [inputValue, setInputValue] = useState("torvalds");
+  const [inputValue, setInputValue] = useState("benawad");
   const [user, setUser] = useState<User>();
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);

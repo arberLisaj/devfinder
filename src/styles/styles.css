@@ -264,7 +264,9 @@ section#user .details li a {
   section#user .container .info {
     margin: 0;
     width: 100%;
-    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    height: 100vh;
   }
   section#user .container .info ul {
     min-height: 100vh;
