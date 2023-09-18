@@ -10,6 +10,7 @@ const App = () => {
   const [inputValue, setInputValue] = useState<string>();
   const [users, setUsers] = useState<User[]>([]);
   const { user, error } = useFetchUser(inputValue);
+
   useEffect(() => {
     if (user) setUsers([...users, user]);
   }, [user]);

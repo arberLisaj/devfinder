@@ -20,9 +20,9 @@ const UserTable = ({ users }: Props) => {
           <TableHead className="text-center">avatar / profile</TableHead>
           <TableHead className="text-center">username</TableHead>
           <TableHead>github description</TableHead>
-          <TableHead>repos</TableHead>
-          <TableHead>followers</TableHead>
-          <TableHead>following</TableHead>
+          <TableHead className="text-center">repos</TableHead>
+          <TableHead className="text-center">followers</TableHead>
+          <TableHead className="text-center">following</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
