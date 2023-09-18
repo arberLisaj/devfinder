@@ -1,9 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-interface User {
+export interface User {
   id: number;
   login: string;
+  bio: string;
+  avatar_url: string;
+  public_repos: number;
+  html_url: string;
+  followers: number;
+  following: number;
 }
 
 const useFetchUser = (inputValue: string | undefined) => {

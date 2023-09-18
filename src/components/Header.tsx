@@ -11,7 +11,7 @@ const Header = ({ setInput }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = () => {
-    if (inputRef.current && inputRef.current.value.length > 3) {
+    if (inputRef.current && inputRef.current.value.length > 2) {
       setInput(inputRef.current!.value.replace(/\s+/g, ""));
       inputRef.current!.value = "";
     }
