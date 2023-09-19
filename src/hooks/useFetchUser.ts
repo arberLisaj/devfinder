@@ -5,6 +5,7 @@ export interface User {
   id: number;
   login: string;
   bio: string;
+  location: string;
   avatar_url: string;
   public_repos: number;
   html_url: string;

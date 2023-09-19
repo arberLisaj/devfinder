@@ -20,7 +20,7 @@ const App = () => {
       <Header setInput={(value) => setInputValue(value)} />
       {error && (
         <>
-          <p className="text-3xl text-red-600 text-center mt-[20vh] mb-4">
+          <p className="text-3xl text-red-600 text-center mt-[20vh] mb-3">
             Oops! Something went wrong <br /> or no such user
           </p>
           <Button
@@ -37,11 +37,11 @@ const App = () => {
         <Section>
           {user ? (
             <>
-              <h1 className="text-2xl mb-4">Searches history...</h1>
+              <h1 className="text-xl mb-4">Searches history...</h1>
               <UserTable users={users} />
             </>
           ) : (
-            <p className="text-2xl w-fit flex items-center gap-3 mx-auto mt-8">
+            <p className="text-xl w-fit flex items-center gap-3 mx-auto mt-8">
               <AiOutlineSearch /> Search for a user...
             </p>
           )}

@@ -1,12 +1,13 @@
 import { useRef } from "react";
 import { BsGithub } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 
 interface Props {
   setInput: (value: string) => void;
 }
+
 const Header = ({ setInput }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
