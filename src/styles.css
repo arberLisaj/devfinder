@@ -7,8 +7,44 @@
   font-weight: normal;
   outline: none;
   font-family: Poppins, sans-serif;
-  color: #333;
+  list-style: none;
 }
 body {
   padding-inline: 15px;
+}
+img {
+  width: 100%;
+}
+.profile header ul li {
+  text-align: center;
+}
+.profile .links li {
+  display: flex;
+  gap: 5px;
+  color: rgb(49, 49, 49);
+  align-items: center;
+  font-size: 15px;
+}
+.profile .links li a {
+  font-size: 15px;
+}
+hr {
+  border: none;
+  height: 1px;
+  background-color: gainsboro;
+  margin-block: 7px 4px;
+}
+.spinner {
+  display: block;
+  max-width: fit-content;
+  margin: 50px auto;
+  animation: spin 0.5s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

@@ -1,9 +1,16 @@
-import React, { useRef, useState } from "react";
+import { useRef } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 
-function Header() {
-  const [inputValue, setInputValue] = useState("");
+function Header({ setUsername }) {
   const inputRef = useRef(null);
+
+  function handleSubmit() {
+    const value = inputRef.current.value;
+    if (value.length > 2) {
+      setUsername(value);
+      inputRef.current.value = "";
+    }
+  }
 
   return (
     <header
@@ -16,7 +23,7 @@ function Header() {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          maxWidth: "1200px",
+          maxWidth: "1100px",
           marginInline: "auto",
           paddingBlock: "10px",
           gap: "10px",
@@ -27,6 +34,7 @@ function Header() {
           style={{
             fontSize: "20px",
             textDecoration: "none",
+            color: "#333",
           }}
         >
           Devfinder
@@ -34,7 +42,7 @@ function Header() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            setInputValue(inputRef.current.value);
+            handleSubmit();
           }}
           style={{
             display: "flex",
@@ -53,8 +61,6 @@ function Header() {
             }}
             placeholder="Search users e.g. arberlisaj"
             ref={inputRef}
-            required
-            minLength={3}
             type="text"
           />
         </form>
