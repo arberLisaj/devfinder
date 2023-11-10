@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/devfinder/static/css/main.d8e31d88.css",
+    "main.js": "/devfinder/static/js/main.481e33a5.js",
+    "index.html": "/devfinder/index.html",
+    "main.d8e31d88.css.map": "/devfinder/static/css/main.d8e31d88.css.map",
+    "main.481e33a5.js.map": "/devfinder/static/js/main.481e33a5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d8e31d88.css",
+    "static/js/main.481e33a5.js"
+  ]
+}
